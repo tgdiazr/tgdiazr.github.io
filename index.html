@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tania Díaz-Rodríguez, PhD — Data Scientist &amp; Software Developer</title>
+<meta content="Data scientist and software developer. I build web applications, dashboards, and machine-learning tools, with a research background in scientific computing and HPC." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#131A26; --ink-soft:#3C4656; --paper:#F5F6F8; --paper-2:#FFFFFF;
+    --line:#DBDFE6; --accent:#2D3DBD; --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Newsreader",Georgia,serif;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;text-underline-offset:3px;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .spectrum{height:5px;width:100%;border:0;margin:0;
+    background:linear-gradient(90deg,#6A2DBD 0%,#2D3DBD 22%,#0E8E9E 44%,#2FA36B 60%,#E0A93B 78%,#C8453A 100%);}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;font-weight:700;line-height:1.08;margin:0;}
+
+  header.hero{background:var(--ink);color:#EAEDF3;padding:70px 0 64px;}
+  .hero .eyebrow{color:#9AA6BD;}
+  .hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);letter-spacing:-.02em;margin:18px 0 0;color:#FFFFFF;}
+  .hero .accent-name{color:#9FB0FF;}
+  .hero .thesis{font-size:clamp(1.15rem,2.4vw,1.5rem);max-width:52ch;margin:26px 0 0;color:#D4DAE6;}
+  .hero .thesis em{color:#FFFFFF;font-style:italic;}
+  .stat-row{display:flex;flex-wrap:wrap;gap:30px;margin-top:34px;}
+  .stat .n{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.7rem;color:#9FB0FF;}
+  .stat .l{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#9AA6BD;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;}
+  .btn{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:.95rem;padding:13px 22px;border-radius:6px;display:inline-block;}
+  .btn-primary{background:#9FB0FF;color:var(--ink);}
+  .btn-primary:hover{background:#fff;text-decoration:none;}
+  .btn-ghost{border:1px solid #3C4660;color:#EAEDF3;}
+  .btn-ghost:hover{border-color:#9FB0FF;text-decoration:none;}
+
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;}
+  .sec-head .num{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--accent);padding-top:6px;}
+  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.01em;}
+  .lead{font-size:1.18rem;max-width:64ch;}
+  p{margin:0 0 1.05em;}
+  .ink-soft{color:var(--ink-soft);}
+
+  /* tech stack strip */
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.04em;
+    background:var(--paper-2);border:1px solid var(--line);color:var(--ink);
+    padding:7px 13px;border-radius:6px;}
+
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px;}
+  .card{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:26px;}
+  .card h3{font-size:1.18rem;margin-bottom:10px;}
+  .card p{font-size:1rem;color:var(--ink-soft);margin:0;line-height:1.55;}
+  .card .tag{display:block;margin-bottom:14px;color:var(--accent);}
+
+  .job{display:grid;grid-template-columns:160px 1fr;gap:26px;padding:24px 0;border-top:1px solid var(--line);}
+  .job:first-of-type{border-top:0;}
+  .job .meta{font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--ink-soft);line-height:1.7;}
+  .job h3{font-size:1.22rem;margin-bottom:4px;}
+  .job .role{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+  .job ul{margin:0;padding-left:18px;}
+  .job li{margin-bottom:7px;color:var(--ink-soft);font-size:1rem;}
+  .job li b{color:var(--ink);font-weight:500;}
+
+  .entry{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:20px 0;border-top:1px solid var(--line);}
+  .entry:first-of-type{border-top:0;}
+  .entry .meta{font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--ink-soft);line-height:1.7;}
+  .entry h3{font-size:1.12rem;margin-bottom:4px;}
+  .entry p{font-size:.98rem;margin:0;color:var(--ink-soft);}
+
+  .pub-cat{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin:30px 0 4px;}
+  ol.pubs{list-style:none;margin:0;padding:0;}
+  ol.pubs li{padding:16px 0;border-top:1px solid var(--line);font-size:1rem;}
+  ol.pubs .title{font-weight:500;}
+  ol.pubs .src{color:var(--ink-soft);font-style:italic;}
+  ol.pubs .desc{display:block;margin-top:5px;font-size:.94rem;color:var(--ink-soft);}
+
+  .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 40px;max-width:640px;margin-top:30px;}
+  .contact-grid .row .mono{display:block;margin-bottom:4px;}
+  .contact-grid .row a{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;}
+
+  footer{padding:38px 0;color:var(--ink-soft);font-size:.85rem;}
+  footer .mono{color:var(--ink-soft);}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+  @media (max-width:720px){
+    body{font-size:18px;}
+    .grid2{grid-template-columns:1fr;}
+    .job,.entry{grid-template-columns:1fr;gap:8px;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<hr class="spectrum"/>
+<!-- ============ HERO ============ -->
+<header class="hero">
+<div class="wrap">
+<p class="mono eyebrow">Data Scientist · Software Developer</p>
+<h1>Tania <span class="accent-name">Díaz-Rodríguez</span>, PhD</h1>
+<p class="thesis">
+      I build software, dashboards, and machine-learning tools that turn data into
+      <em>clear decisions</em> — backed by a research career in scientific computing.
+    </p>
+<div class="stat-row">
+<div class="stat"><div class="n">5+ yrs</div><div class="l">Data &amp; software</div></div>
+<div class="stat"><div class="n">+12%</div><div class="l">Efficiency delivered</div></div>
+<div class="stat"><div class="n">7</div><div class="l">Publications</div></div>
+<div class="stat"><div class="n">PhD</div><div class="l">Engineering</div></div>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#contact">Get in touch</a>
+<a class="btn btn-ghost" href="#experience">See my work</a>
+</div>
+</div>
+</header>
+<main>
+<div class="wrap">
+<!-- ============ 01 ABOUT ============ -->
+<section id="about">
+<div class="sec-head"><span class="num">01</span><h2>About me</h2></div>
+<div class="reveal">
+<p class="lead">
+        I’m a data scientist and software developer who helps organizations make better
+        decisions with their data — and builds the tools that put those decisions to work.
+      </p>
+<p class="ink-soft">
+        Today I work as a systems analyst and programmer, developing web applications and
+        data systems used across a large public-sector organization. I’m strong with C#/.NET,
+        Python, SQL, Power BI, machine learning, and the major cloud platforms (Azure, AWS,
+        and Google Cloud), and I work in both English and Spanish.
+      </p>
+<p class="ink-soft">
+        I started my career in research as a computational scientist, where I built
+        machine-learning models and ran large-scale simulations on supercomputers to predict
+        how materials behave. That work produced seven peer-reviewed papers, a book chapter,
+        and a granted patent — and it’s the same analytical rigor I bring to business and
+        engineering problems today.
+      </p>
+<div class="stack">
+<span class="chip">Python</span><span class="chip">C# / .NET</span>
+<span class="chip">SQL</span><span class="chip">Power BI</span>
+<span class="chip">scikit-learn</span><span class="chip">Machine Learning</span>
+<span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">Google Cloud</span>
+<span class="chip">ETL pipelines</span><span class="chip">HPC / SLURM</span>
+<span class="chip">Git</span><span class="chip">EN / ES bilingual</span>
+</div>
+</div>
+</section>
+<!-- ============ 02 EXPERIENCE ============ -->
+<section id="experience">
+<div class="sec-head"><span class="num">02</span><h2>Experience</h2></div>
+<div class="reveal">
+<div class="job">
+<div class="meta">2025 – Present<br/>Santa Fe, NM</div>
+<div>
+<h3>New Mexico Legislative Council Service</h3>
+<div class="role">Systems Analyst &amp; Programmer</div>
+<ul>
+<li>Develop and maintain <b>web applications</b> for the state legislature using <b>C#/.NET, ASP.NET Core, and Azure SQL</b>.</li>
+<li>Designed and built a <b>committee-management web app</b> that replaces a legacy desktop database.</li>
+<li>Manage user identities and secure access with <b>Azure Active Directory</b>.</li>
+<li>Support virtual desktop environments (Citrix, VMware, Azure Virtual Desktop) and analyze support-ticket data to improve service.</li>
+</ul>
+</div>
+</div>
+<div class="job">
+<div class="meta">2025<br/>Austin, TX</div>
+<div>
+<h3>Agile Global Resources, LLC</h3>
+<div class="role">Engineer — Industrial Data</div>
+<ul>
+<li>Improved production efficiency by <b>~12%</b> through data-driven optimization.</li>
+<li>Cut downtime by building <b>automated root-cause analysis</b> in Python and SQL.</li>
+<li>Built data workflows with Python, SQL, and Power BI; documented in EN/ES across plants.</li>
+</ul>
+</div>
+</div>
+<div class="job">
+<div class="meta">2023 – 2024<br/>Remote · Miami, FL</div>
+<div>
+<h3>Inspiralia Group USA</h3>
+<div class="role">Senior Innovation Consultant</div>
+<ul>
+<li>Delivered <b>Power BI dashboards used in 100%</b> of final R&amp;D funding proposals.</li>
+<li>Analyzed large datasets in Python and SQL to identify high-potential projects.</li>
+</ul>
+</div>
+</div>
+<div class="job">
+<div class="meta">2024<br/>Las Vegas, NM</div>
+<div>
+<h3>New Mexico Highlands University</h3>
+<div class="role">Postdoctoral Researcher — Computational Chemistry</div>
+<ul>
+<li>Ran <b>DFT and molecular-dynamics simulations</b> to study the structure and optical properties of halide perovskites.</li>
+<li>Validated computational predictions against experimental data (XRD, Raman, UV-Vis) with <b>&gt;90% correlation</b>.</li>
+<li>Automated spectroscopy data processing with <b>Python ETL pipelines</b>, cutting analysis time by <b>40%</b>.</li>
+</ul>
+</div>
+</div>
+<div class="job">
+<div class="meta">2021 – 2025<br/>Research · UNAM</div>
+<div>
+<h3>Renewable Energy Institute (UNAM)</h3>
+<div class="role">Researcher — Machine Learning &amp; Materials</div>
+<ul>
+<li>Built <b>machine-learning pipelines</b> that improved prediction accuracy by <b>15%</b>.</li>
+<li>Automated data processing with Python ETL to <b>cut analysis time by 40%</b>.</li>
+<li>Ran large simulations on HPC/SLURM clusters and built real-time dashboards (Power BI, Plotly).</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ 03 PROJECTS ============ -->
+<section id="projects">
+<div class="sec-head"><span class="num">03</span><h2>Projects</h2></div>
+<p class="lead reveal">A selection of my data and analytics work — code and notebooks on GitHub.</p>
+<div class="grid2 reveal">
+<div class="card">
+<span class="mono tag">Data analysis</span>
+<h3>Vehicle &amp; Equipment Distribution</h3>
+<p>Explores how vehicles and equipment are distributed and classified across an
+           organization’s departments to surface actionable insights.</p>
+<p style="margin-top:12px;"><a href="https://github.com/tgdiazr/Data-Analysis-Portfolio-Vehicle-Equipment-Distribution" rel="noopener noreferrer" target="_blank">View on GitHub ↗</a></p>
+</div>
+<div class="card">
+<span class="mono tag">Python · Jupyter</span>
+<h3>Energy Analysis</h3>
+<p>A data-analysis notebook examining energy data — cleaning, exploring, and
+           visualizing trends to draw conclusions.</p>
+<p style="margin-top:12px;"><a href="https://github.com/tgdiazr/Energy-Analysis" rel="noopener noreferrer" target="_blank">View on GitHub ↗</a></p>
+</div>
+<div class="card">
+<span class="mono tag">BI · IBM Cognos</span>
+<h3>Customer Loyalty Analysis</h3>
+<p>Analyzes customer-loyalty data and builds reporting with IBM Cognos to show
+           what drives retention.</p>
+<p style="margin-top:12px;"><a href="https://github.com/tgdiazr/Customer-Loyalty-Analysis-with-IBM-Cognos" rel="noopener noreferrer" target="_blank">View on GitHub ↗</a></p>
+</div>
+<div class="card">
+<span class="mono tag">Python · SQL</span>
+<h3>Data Cleaning &amp; SQL</h3>
+<p>Practical examples of cleaning messy datasets and writing SQL — the
+           groundwork that makes every analysis reliable.</p>
+<p style="margin-top:12px;"><a href="https://github.com/tgdiazr/Data-Cleaning-Examples" rel="noopener noreferrer" target="_blank">View on GitHub ↗</a></p>
+</div>
+</div>
+<p class="ink-soft reveal" style="margin-top:18px;font-size:.96rem;">
+      More on my <a href="https://github.com/tgdiazr" rel="noopener noreferrer" target="_blank">GitHub profile</a>.
+    </p>
+</section>
+<!-- ============ 04 WHAT I DO ============ -->
+<section id="services">
+<div class="sec-head"><span class="num">04</span><h2>What I do</h2></div>
+<div class="grid2 reveal">
+<div class="card">
+<span class="mono tag">Software development</span>
+<h3>Build the tools</h3>
+<p>Web applications and internal systems in C#/.NET and Python that replace
+           slow, manual processes with reliable software.</p>
+</div>
+<div class="card">
+<span class="mono tag">Data &amp; dashboards</span>
+<h3>Make sense of the numbers</h3>
+<p>Clear dashboards and reports (Power BI, Python, SQL) so teams can see what’s
+           happening and decide faster.</p>
+</div>
+<div class="card">
+<span class="mono tag">Machine learning</span>
+<h3>Predict what comes next</h3>
+<p>Models that forecast outcomes and find patterns people miss, improving
+           accuracy and cutting manual guesswork.</p>
+</div>
+<div class="card">
+<span class="mono tag">Cloud &amp; IT systems</span>
+<h3>Keep it running</h3>
+<p>Cloud data pipelines and identity/access management on Azure, plus
+           dependable support for the systems people rely on every day.</p>
+</div>
+</div>
+</section>
+<!-- ============ 05 EDUCATION ============ -->
+<section id="education">
+<div class="sec-head"><span class="num">05</span><h2>Education &amp; recognition</h2></div>
+<div class="reveal">
+<div class="entry">
+<div class="meta">PhD · 2019</div>
+<div><h3>PhD in Engineering (Semiconductor Devices)</h3>
+<p>Benemérita Universidad Autónoma de Puebla, Mexico.</p></div>
+</div>
+<div class="entry">
+<div class="meta">MSc · 2015</div>
+<div><h3>MSc in Semiconductor Devices — Cum Laude</h3>
+<p>Benemérita Universidad Autónoma de Puebla, Mexico.</p></div>
+</div>
+<div class="entry">
+<div class="meta">BSc · 2012</div>
+<div><h3>BSc in Energy Engineering</h3>
+<p>Universidad Politécnica de Chiapas, Mexico.</p></div>
+</div>
+<div class="entry">
+<div class="meta">Recognition</div>
+<div><h3>National System of Researchers (SNI)</h3>
+<p>National Researcher candidate, SNI–CONACYT — Mexico’s national system
+             recognizing active research scientists.</p></div>
+</div>
+<div class="entry">
+<div class="meta">2016–2018</div>
+<div><h3>National Supercomputing Laboratory (LNS)</h3>
+<p>Led computational research projects on the National Supercomputing
+             Laboratory of Southeast Mexico — running large-scale simulations on
+             HPC clusters (SLURM) and processing the resulting datasets.</p></div>
+</div>
+<div class="entry">
+<div class="meta">PhD talks<br/>2017–2018</div>
+<div><h3>Invited talks &amp; conferences</h3>
+<p>Presented my doctoral research internationally: the 5th Nano Today
+             Conference (Hawaii, USA, 2017), a research seminar at the University of
+             California, Santa Barbara (2017), and the ACA Annual Meeting
+             (Toronto, Canada, 2018).</p></div>
+</div>
+<div class="entry">
+<div class="meta">2023–2025</div>
+<div><h3>Certifications</h3>
+<p>IBM — Data Science &amp; Visualization (Python, SQL, Cognos). Azure and
+             CompTIA Security+ in progress. AS in Computer Science (SFCC) in progress.</p></div>
+</div>
+</div>
+</section>
+<!-- ============ 06 RESEARCH & PUBLICATIONS ============ -->
+<section id="publications">
+<div class="sec-head"><span class="num">06</span><h2>Research &amp; publications</h2></div>
+<p class="lead reveal">As a computational scientist I combined large-scale simulation,
+       machine learning, and data analysis on high-performance computing and cloud platforms.
+       The descriptions below focus on the software, data, and IT methods behind each result.</p>
+<p class="pub-cat reveal">Patent</p>
+<ol class="pubs reveal">
+<li>
+<span class="title">Computationally informed manufacturing process for photoluminescent porous-silicon structures.</span>
+<span class="src"> Mexican Patent MX 424843 B, granted 2025.</span>
+<span class="desc">A manufacturing process designed and optimized using computer simulation and data analysis to predict the structures’ photoluminescent behavior.</span>
+</li>
+</ol>
+<p class="pub-cat reveal">Book chapter</p>
+<ol class="pubs reveal">
+<li>
+<span class="title">DFT, Data Science, and IT Workflows for Sustainable Energy Applications.</span>
+<span class="src"> Elsevier, 2025.</span>
+<span class="desc">How to combine physics-based simulation, data-science methods, and IT/compute workflows into a reproducible pipeline for energy-materials research.</span>
+<a href="https://shop.elsevier.com/books/density-functional-theory/kuznetsov/978-0-443-18977-7" rel="noopener noreferrer" target="_blank">View ↗</a>
+</li>
+</ol>
+<p class="pub-cat reveal">Selected journal articles</p>
+<ol class="pubs reveal">
+<li>
+<span class="title">Contaminants and analyte adsorption on functionalized porous silicon.</span>
+<span class="src"> Surfaces and Interfaces, 2024.</span>
+<span class="desc">Simulation of biosensor surfaces paired with experiment; built automated Python pipelines to process and validate the spectroscopy data.</span>
+<a href="https://doi.org/10.1016/j.surfin.2024.105480" rel="noopener noreferrer" target="_blank">DOI ↗</a>
+</li>
+<li>
+<span class="title">Thermal stability of astaxanthin on biogenic porous silica.</span>
+<span class="src"> Surfaces and Interfaces, 2025.</span>
+<span class="desc">Combined computational modeling and experimental data analysis to explain a material’s improved thermal performance.</span>
+<a href="https://doi.org/10.1016/j.surfin.2025.108360" rel="noopener noreferrer" target="_blank">DOI ↗</a>
+</li>
+<li>
+<span class="title">Functionalized porous silicon for capturing harmful agents.</span>
+<span class="src"> Biophysical Chemistry, 2022. (Cover art)</span>
+<span class="desc">Quantum simulations (DFT) run on HPC to model surface interactions, with data-driven analysis of the results. Featured as journal cover.</span>
+<a href="https://doi.org/10.1016/j.bpc.2022.106910" rel="noopener noreferrer" target="_blank">DOI ↗</a>
+</li>
+<li>
+<span class="title">Structure of TiO₂ nanoparticles and adsorption of PbS quantum dots.</span>
+<span class="src"> Theoretical Chemistry Accounts, 2019.</span>
+<span class="desc">Molecular-dynamics (ReaxFF) and DFT simulations on supercomputers; processed large simulation datasets and validated them against lab measurements.</span>
+<a href="https://doi.org/10.1007/s00214-019-2480-8" rel="noopener noreferrer" target="_blank">DOI ↗</a>
+</li>
+<li>
+<span class="title">Electronic structure of PbS quantum dots on TiO₂ for solid-state devices.</span>
+<span class="src"> Computational and Theoretical Chemistry, 2017.</span>
+<span class="desc">High-performance computing simulations to model semiconductor interfaces relevant to solar cells and electronics.</span>
+<a href="https://doi.org/10.1016/j.comptc.2016.12.013" rel="noopener noreferrer" target="_blank">DOI ↗</a>
+</li>
+</ol>
+<p class="ink-soft reveal" style="margin-top:18px;font-size:.96rem;">
+      Full list of publications available on
+      <a href="https://www.linkedin.com/in/tania-diaz-phd-398a157a" rel="noopener noreferrer" target="_blank">LinkedIn</a>.
+    </p>
+</section>
+<!-- ============ 07 CONTACT ============ -->
+<section id="contact" style="border-bottom:0;">
+<div class="sec-head"><span class="num">07</span><h2>Get in touch</h2></div>
+<p class="lead reveal">Open to new roles and projects. The best way to reach me:</p>
+<div class="contact-grid reveal">
+<div class="row"><span class="mono">Email</span>
+<a href="mailto:tgdiazr@gmail.com">tgdiazr@gmail.com</a></div>
+<div class="row"><span class="mono">LinkedIn</span>
+<a href="https://www.linkedin.com/in/tania-diaz-phd-398a157a" rel="noopener noreferrer" target="_blank">tania-diaz-phd</a></div>
+<div class="row"><span class="mono">GitHub</span>
+<a href="https://github.com/tgdiazr" rel="noopener noreferrer" target="_blank">github.com/tgdiazr</a></div>
+<div class="row"><span class="mono">Location</span>
+<span style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;">Santa Fe, New Mexico</span></div>
+</div>
+</section>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<p class="mono">© <span id="yr"></span> Tania Díaz-Rodríguez, PhD</p>
+</div>
+</footer>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
